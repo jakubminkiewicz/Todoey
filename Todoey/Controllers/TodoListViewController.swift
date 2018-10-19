@@ -44,6 +44,9 @@ class TodoListViewController: UITableViewController {
         
         itemArray[indexPath.row].done.toggle()
         
+//        context.delete(itemArray[indexPath.row])
+//        itemArray.remove(at: indexPath.row)
+        
         self.saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -96,7 +99,13 @@ class TodoListViewController: UITableViewController {
             print("Error fetching data \(error)")
         }
     }
-    
-    
+}
+
+
+//MARK: - Search bar methods
+extension TodoListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search bar clicked")
+    }
 }
 
